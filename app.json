@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "aaga2o",
+    "slug": "aaga2o",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
