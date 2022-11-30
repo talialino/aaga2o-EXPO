@@ -6,18 +6,29 @@ import {
 } from "react-native-responsive-screen"
 import { BotaoLogin, FundoDegrade } from "../../components"
 import Logo from "../../assets/aaga2o.png"
+import api from "../../services/api"
 import { useNavigation } from "@react-navigation/native"
-
 
 
 const Width = Dimensions.get("window").width
 const Height = Dimensions.get("window").height
 
 export default function Login() {
-  const navigation = useNavigation()
 
-  	function navegadorHome() {
-		navigation.navigate("Home")
+	const navigation = useNavigation()
+
+	const recebeDados = async () => {
+		try {
+			const { data } = await api.get("/")
+			navegadorHome(data)
+			console.log('Recebi os dados')
+		} catch (error) {
+			console.log(error, error.response)
+		}
+	}
+
+	function navegadorHome(data) {
+		navigation.navigate("Home", data)
 	}
 
 	return (
@@ -31,7 +42,7 @@ export default function Login() {
 					<Text style={styles.Titulo2}>
 						Tenha acesso ilimitado a medição de IOF e verifique a portabilidade da água local.
 					</Text>
-					<BotaoLogin text='Acesse aqui' custom={styles.Button} onPress={navegadorHome} />
+					<BotaoLogin text='Acesse aqui' custom={styles.Button} onPress={recebeDados} />
 				</View>
 			</FundoDegrade>
 		</>
@@ -75,4 +86,3 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 })
-
