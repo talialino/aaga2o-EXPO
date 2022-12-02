@@ -60,6 +60,7 @@ export default function Home(props) {
 			<View style={styles.Modal} />
 			<View style={styles.Container}>
 				<Text style={styles.Titulo}>Resultados obtidos:</Text>
+			<RNSpeedometer wrapperStyle={styles.Medidor} value={data} size={300} labels={label} />
 				{data <= 19 ? (
 					<Text style={styles.SubTitulo}>
 						A qualidade da sua água não está nada boa :/ Você precisa de uma visita técnica com
@@ -82,7 +83,6 @@ export default function Home(props) {
 						Parabéns!! Sua água está pronta para consumo e não há do que se preocupar =D
 					</Text>
 				)}
-				<RNSpeedometer wrapperStyle={styles.Medidor} value={data} size={300} labels={label} />
 				<BotaoLogin text='Atualizar' onPress={atualizaDados} custom={styles.Button} />
 			</View>
 		</ScrollView>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	Button: {
-		marginTop: hp("15%"),
+		marginTop: hp("5%"),
 	},
 	Modal: {
 		backgroundColor: "#021F70",
@@ -109,17 +109,19 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		fontSize: wp("8%"),
 		textAlign: "center",
+		color: "#021F70",
 	},
 	SubTitulo: {
-		marginTop: hp("7%"),
-		fontSize: wp("4%"),
+		marginTop: hp("8%"),
+		fontSize: wp("4.5%"),
 		justifyContent: "center",
+		color: "#A4A4A4",
 
 		padding: wp("5%"),
 		textAlign: "center",
 	},
 	Medidor: {
-		marginTop: hp("10%"),
+		marginTop: hp("8%"),
 	},
 })
 
