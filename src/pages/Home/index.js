@@ -24,7 +24,7 @@ export default function Home(props) {
 			console.log("Atualizei os dados")
 		} catch (error) {
 			console.log(error, error.response)
-		} //10muitoruim,20ruim,40medio,70bom,90excelente --- usar essas medidas para if de cada mensagem que vai aparecer
+		} 
 	}
 
 	const label = [
