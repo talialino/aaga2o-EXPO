@@ -29,27 +29,27 @@ export default function Home(props) {
 
 	const label = [
 		{
-			name: "Muito ruim. A qualidade da sua água não está nada boa :/ Você precisa de uma visita técnica com urgência!!",
+			name: "Muito ruim.",
 			labelColor: "#ff2900",
 			activeBarColor: "#ff2900",
 		},
 		{
-			name: "Ruim. Sua água está quase no limite. Isso é um grande perigo!",
+			name: "Ruim.",
 			labelColor: "#f4ab44",
 			activeBarColor: "#f4ab44",
 		},
 		{
-			name: "Médio. Não tem muito do que se preocupar, mas não deixe de estar atento a sua água.",
+			name: "Médio.",
 			labelColor: "#f2cf1f",
 			activeBarColor: "#f2cf1f",
 		},
 		{
-			name: "Bom. Sua água está em ótimas condições, mas nada tanto assim que não possa melhorar ;)",
+			name: "Bom.",
 			labelColor: "#14eb6e",
 			activeBarColor: "#14eb6e",
 		},
 		{
-			name: "Excelente. Parabéns!! Sua água está pronta para consumo e não há do que se preocupar =D",
+			name: "Excelente.",
 			labelColor: "#00ff6b",
 			activeBarColor: "#00ff6b",
 		},
@@ -60,6 +60,28 @@ export default function Home(props) {
 			<View style={styles.Modal} />
 			<View style={styles.Container}>
 				<Text style={styles.Titulo}>Resultados obtidos:</Text>
+				{data <= 19 ? (
+					<Text style={styles.SubTitulo}>
+						A qualidade da sua água não está nada boa :/ Você precisa de uma visita técnica com
+						urgência!!
+					</Text>
+				) : data <= 39 ? (
+					<Text style={styles.SubTitulo}>
+						Sua água está quase no limite. Isso é um grande perigo!
+					</Text>
+				) : data <= 69 ? (
+					<Text style={styles.SubTitulo}>
+						Não tem muito do que se preocupar, mas não deixe de estar atento a sua água.
+					</Text>
+				) : data <= 89 ? (
+					<Text style={styles.SubTitulo}>
+						Sua água está em ótimas condições, mas nada tanto assim que não possa melhorar!
+					</Text>
+				) : (
+					<Text style={styles.SubTitulo}>
+						Parabéns!! Sua água está pronta para consumo e não há do que se preocupar =D
+					</Text>
+				)}
 				<RNSpeedometer wrapperStyle={styles.Medidor} value={data} size={300} labels={label} />
 				<BotaoLogin text='Atualizar' onPress={atualizaDados} custom={styles.Button} />
 			</View>
@@ -86,6 +108,14 @@ const styles = StyleSheet.create({
 		marginTop: hp("7%"),
 		fontWeight: "bold",
 		fontSize: wp("8%"),
+		textAlign: "center",
+	},
+	SubTitulo: {
+		color: "#000",
+		fontSize: wp("4%"),
+		justifyContent: "center",
+
+		padding: wp("5%"),
 		textAlign: "center",
 	},
 	Medidor: {
