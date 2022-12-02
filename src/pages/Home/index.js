@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	SubTitulo: {
-		color: "#000",
+		marginTop: hp("7%"),
 		fontSize: wp("4%"),
 		justifyContent: "center",
 
