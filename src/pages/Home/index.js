@@ -50,8 +50,8 @@ export default function Home(props) {
 		},
 		{
 			name: "Excelente.",
-			labelColor: "#00ff6b",
-			activeBarColor: "#00ff6b",
+			labelColor: "#021F70",
+			activeBarColor: "#021F70",
 		},
 	]
 
